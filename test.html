@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .relative {
+    position: relative;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .image {
+    width: 100%;        /* ブラウザのサイズいっぱいに表示 */
+    height: auto;
+  }
+  .up {
+    width: 100%;        /* ブラウザのサイズいっぱいに表示 */
+    height: auto;
+    left: 0px;
+    top: 0px;
+  }
+  .arrow {
+    right: 0px;
+    bottom: 0px;
+  }
+  </style>
+</head></head>
+<body>
+  <div class="relative">
+  <img src="back.png" id="image" class="image" />
+  <img src="up.png" class="absolute up" />
+  <img src="arrow.png" id= "arrow" class="absolute arrow" />
+  </div>
+  <script>
+    var angle = 0;
+    function main() {
+      var arrow = document.getElementById("arrow");
+      arrow.style.transform = "rotate(" + angle + "deg)";
+      angle -= 10;
+      if (angle < -50) {
+        document.getElementById("image").src="back2.png";
+      }
+      setTimeout(main, 1000);
+    }
+    setTimeout(main, 1000);
+  </script>
+</body>
+</html>
